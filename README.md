@@ -1,5 +1,8 @@
 # api-gateway-service
 基于Spring Cloud Gateway + Nacos实现JwtToken校验、路由、负载均衡和熔断功能的gateway服务
+
+## Spring Cloud Gateway 工作方式：
+
 ![](https://github.com/Starbucksstar/api-gateway-service/blob/master/spring_cloud_gateway_diagram.png)
 
 ## Spring Cloud Gateway
@@ -13,3 +16,6 @@
   - 请求限流功能；
   - 支持路径重写。
 - Spring Cloud Gateway需要Spring Boot和Spring Webflux提供的Netty运行时。它不能在传统的Servlet容器中或作为WAR构建时使用。
+
+## Spring Cloud Gateway网关后端架构图
+![](https://github.com/Starbucksstar/api-gateway-service/blob/master/gateway-serverless-framework.png)
