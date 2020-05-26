@@ -1,0 +1,45 @@
+server:
+  port: 9999
+
+spring:
+  redis:
+    host: localhost
+    database: 0
+    password: redis
+  application:
+    name: api-gateway-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nexus-panorama.chinanorth.cloudapp.chinacloudapi.cn:8848
+        group: LOCAL
+      config:
+        server-addr: nexus-panorama.chinanorth.cloudapp.chinacloudapi.cn:8848
+        group: LOCAL
+        name: GATEWAY
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/api/v1/account/**
+        - id: scene-service
+          uri: lb://scene-service
+          predicates:
+            - Path=/api/v1/panoramas/**
+
+nacos:
+  gateway:
+    dynamic:
+      route:
+        groupId: LOCAL
+        dataId: GATEWAY
+
+jwt:
+  token:
+    secret: QW1Eiosoi0901ww
+    prefix: LOCAL
