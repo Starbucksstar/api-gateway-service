@@ -12,3 +12,4 @@
   - 易于编写的 Predicate（断言）和 Filter（过滤器）；
   - 请求限流功能；
   - 支持路径重写。
+- Spring Cloud Gateway需要Spring Boot和Spring Webflux提供的Netty运行时。它不能在传统的Servlet容器中或作为WAR构建时使用。
